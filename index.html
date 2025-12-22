@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Du bist nicht allein - Ein Online-Workshop für Betroffene von sexueller Gewalt. Verstehe deine Reaktionen, überwinde Scham und beginne zu heilen.">
+    <title>Du bist nicht allein - Workshop für Betroffene</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-rose: #D4A5A5;
+            --copper-rose: #C19A9A;
+            --light-rose: #F5E8E8;
+            --dark-rose: #A67C7C;
+            --cream: #FFF8F3;
+            --taupe: #8B7E74;
+            --dark-gray: #3A3A3A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation - OPTIMIERT */
+        header {
+            background: linear-gradient(135deg, var(--copper-rose) 0%, var(--primary-rose) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section - OPTIMIERT */
+        .hero {
+            background: linear-gradient(135deg, var(--light-rose) 0%, var(--cream) 100%);
+            padding: 10rem 2rem 7rem;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 165, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(193, 154, 154, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, 30px) scale(1.1);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark-rose);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--taupe);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--copper-rose) 0%, var(--dark-rose) 100%);
+            color: var(--white);
+            padding: 1.2rem 3.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(212, 165, 165, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling - OPTIMIERT */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark-rose);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--copper-rose), var(--primary-rose));
+            border-radius: 2px;
+        }
+
+        /* About Section - OPTIMIERT */
+        .about-content {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            margin-bottom: 1.8rem;
+            line-height: 2;
+            color: var(--dark-gray);
+        }
+
+        /* Topics Grid - OPTIMIERT */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .topic-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--copper-rose);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 165, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .topic-card:hover::before {
+            left: 100%;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.25);
+            border-top-color: var(--dark-rose);
+        }
+
+        .topic-card h3 {
+            color: var(--dark-rose);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .topic-card p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .topic-icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-card:hover .topic-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Features Section - OPTIMIERT */
+        .features {
+            background: linear-gradient(135deg, var(--light-rose) 0%, var(--white) 100%);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--copper-rose), transparent);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(180deg, transparent, var(--light-rose));
+            transition: height 0.3s ease;
+        }
+
+        .feature-item:hover::after {
+            height: 100%;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-item h4 {
+            color: var(--copper-rose);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Story Section - OPTIMIERT */
+        .story-section {
+            background: var(--white);
+            padding: 4.5rem;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin: 4rem auto;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 120px;
+            color: var(--light-rose);
+            font-family: Georgia, serif;
+            line-height: 0;
+        }
+
+        .story-section h2 {
+            color: var(--dark-rose);
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-section p {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 1.8rem;
+            color: var(--dark-gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pricing Section - OPTIMIERT */
+        .pricing {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light-rose) 100%);
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--copper-rose), transparent);
+        }
+
+        .pricing-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            text-align: center;
+            border: 4px solid var(--copper-rose);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '⭐';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-color: var(--dark-rose);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark-rose);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 4rem;
+            color: var(--dark-rose);
+            font-weight: 700;
+            margin: 2rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .price::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--copper-rose), transparent);
+        }
+
+        .price-details {
+            color: var(--taupe);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .includes-list {
+            text-align: left;
+            margin: 3rem 0;
+            padding: 0 2rem;
+            list-style: none;
+        }
+
+        .includes-list li {
+            margin-bottom: 1.3rem;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            padding-left: 2rem;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .includes-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .includes-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--copper-rose);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* Testimonials - OPTIMIERT */
+        .testimonials {
+            background: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-rose);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            border-left: 5px solid var(--copper-rose);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--copper-rose);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-left-width: 8px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            color: var(--copper-rose);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section - OPTIMIERT */
+        .faq-item {
+            background: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+            border-left-color: var(--copper-rose);
+        }
+
+        .faq-question {
+            color: var(--dark-rose);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '▼';
+            font-size: 0.8em;
+            color: var(--copper-rose);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item:hover .faq-question::after {
+            transform: translateY(3px);
+        }
+
+        .faq-answer {
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Footer - OPTIMIERT */
+        footer {
+            background: linear-gradient(135deg, var(--dark-rose) 0%, var(--copper-rose) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content > p {
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Safe Space Notice - OPTIMIERT */
+        .safe-space {
+            background: var(--light-rose);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 6px solid var(--copper-rose);
+            margin: 2.5rem 0;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .safe-space:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .safe-space h3 {
+            color: var(--dark-rose);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .safe-space p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Scroll to Top Button - NEU */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--copper-rose), var(--dark-rose));
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive - OPTIMIERT */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8rem 1.5rem 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--copper-rose);
+                padding: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 2rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content, .story-section {
+                padding: 2rem;
+            }
+
+            .pricing-card {
+                padding: 2.5rem;
+            }
+
+            .price {
+                font-size: 3rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Loading Animation - NEU */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            animation: fadeIn 0.5s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">Du bist nicht allein</div>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Menü">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Über den Kurs</a></li>
+                <li><a href="#topics">Inhalte</a></li>
+                <li><a href="#pricing">Preis</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Du bist nicht allein</h1>
+            <p class="hero-subtitle">Ein Workshop für Betroffene von sexueller Gewalt</p>
+            <p>Dieser Kurs ist ein sicherer Raum für dich – um zu verstehen, zu heilen und zu erkennen, dass deine Gefühle und Reaktionen völlig normal sind. Du bist nicht verrückt. Du bist nicht schuld. Und du bist nicht allein.</p>
+            <a href="#pricing" class="cta-button">Jetzt starten</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Über diesen Kurs</h2>
+        <div class="about-content">
+            <p>Sexuelle Gewalt hinterlässt Spuren – im Körper, im Geist, in unseren Beziehungen und in unserem Selbstbild. Viele Betroffene kämpfen mit Scham, Schuldgefühlen und dem Gefühl, dass niemand ihre Erfahrungen und Reaktionen verstehen kann.</p>
+            
+            <p>In diesem Workshop möchte ich dir zeigen, dass du mit deinen Gefühlen und Gedanken nicht allein bist. Dass die Verhaltensweisen, die du entwickelt hast, Schutzmechanismen waren – und dass es völlig normal ist, sich manchmal widersprüchlich oder "seltsam" zu fühlen.</p>
+
+            <div class="safe-space">
+                <h3>🌸 Ein geschützter Raum</h3>
+                <p>Dieser Kurs ist selbstgesteuert und du kannst ihn in deinem eigenen Tempo durcharbeiten. Es gibt keine Verpflichtung, alles auf einmal zu machen. Nimm dir die Zeit, die du brauchst.</p>
+            </div>
+
+            <p>Ich teile auch meine eigene Geschichte mit dir – nicht um Mitleid zu erhalten, sondern um zu zeigen: Heilung ist möglich. Du bist stärker als du denkst. Und es ist okay, wenn der Weg manchmal steinig ist.</p>
+        </div>
+    </section>
+
+    <section id="topics">
+        <h2 class="section-title">Was du in diesem Kurs lernen wirst</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-icon">🧠</div>
+                <h3>Auswirkungen auf Körper & Psyche</h3>
+                <p>Verstehe, wie Trauma sich in deinem Körper und Geist manifestiert und warum bestimmte Reaktionen auftreten.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🎭</div>
+                <h3>Täterstrategien erkennen</h3>
+                <p>Lerne die Manipulationstechniken kennen, die Täter einsetzen, um Opfer zu kontrollieren und zum Schweigen zu bringen.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">💭</div>
+                <h3>Scham & Schuldgefühle</h3>
+                <p>Erkenne, woher diese Gefühle kommen und warum sie oft vom Täter eingeredet wurden – nicht von dir erschaffen.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">❤️</div>
+                <h3>Ambivalente Gefühle</h3>
+                <p>Es ist normal, widersprüchliche Gefühle gegenüber dem Täter zu haben. Du bist nicht die einzige Person, der es so geht.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🛡️</div>
+                <h3>Schutzmechanismen verstehen</h3>
+                <p>Deine Verhaltensweisen waren Überlebensstrategien. Lerne, warum du sie entwickelt hast und wie du damit heute umgehen kannst.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">⚖️</div>
+                <h3>Anzeigen & Justiz</h3>
+                <p>Die Realität von Anzeigen und warum viele im Nichts enden – und wie du damit emotional umgehen kannst.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🌊</div>
+                <h3>Emotionale Achterbahn</h3>
+                <p>Heilung ist kein linearer Prozess. Verstehe die Wellen von Wut, Trauer, Abschluss und allem dazwischen.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">✍️</div>
+                <h3>Heilsame Briefe schreiben</h3>
+                <p>Eine kraftvolle Technik: Schreibe einen Brief an den Täter – ohne ihn jemals abschicken zu müssen. Für deinen eigenen Frieden.</p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-icon">🌱</div>
+                <h3>Meine persönliche Geschichte</h3>
+                <p>Ich teile meine Erfahrungen mit dir – um zu zeigen, dass Heilung möglich ist und du nicht allein bist.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="features">
+        <div class="features-container">
+            <h2 class="section-title">Was der Kurs bietet</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h4>📹 Videolektionen</h4>
+                    <p>Einfühlsame, verständliche Videos zum Anschauen in deinem Tempo</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📝 Arbeitsblätter</h4>
+                    <p>Praktische Übungen zum Reflektieren und Verarbeiten</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎧 Audio-Meditationen</h4>
+                    <p>Geführte Entspannungsübungen für schwierige Momente</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📚 Ressourcenliste</h4>
+                    <p>Hilfreiche Anlaufstellen und weiterführende Informationen</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⏰ Lebenslanger Zugriff</h4>
+                    <p>Komm zurück, wann immer du es brauchst</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔒 Absolute Privatsphäre</h4>
+                    <p>Anonym und sicher – niemand muss wissen, dass du den Kurs machst</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="story-section">
+            <h2>Warum ich diesen Kurs erstellt habe</h2>
+            <p>Ich kenne die Dunkelheit, die Scham, die Verwirrung. Ich kenne das Gefühl, verrückt zu sein, weil niemand um mich herum zu verstehen schien, warum ich so reagiere, wie ich reagiere.</p>
+            
+            <p>Jahre lang dachte ich, ich wäre die Einzige, die so fühlt. Die Einzige, die diese widersprüchlichen Emotionen hat. Die Einzige, die sich fragt: "Bin ich schuld?" – obwohl ich rational wusste, dass ich es nicht bin.</p>
+            
+            <p>Als ich anfing, mich mit anderen Betroffenen auszutauschen, merkte ich: Wir sind so viele. Und unsere Geschichten ähneln sich auf erschreckende Weise. Die Täterstrategien sind ähnlich. Unsere Schutzmechanismen sind ähnlich. Unsere Schuldgefühle sind ähnlich.</p>
+            
+            <p>Dieser Kurs ist das, was ich damals gebraucht hätte. Eine Stimme, die sagt: "Du bist nicht verrückt. Du bist normal. Und du bist nicht allein."</p>
+        </div>
+    </section>
+
+    <div class="pricing" id="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">Investiere in deine Heilung</h2>
+            <div class="pricing-card">
+                <h3>Kompletter Workshop-Zugang</h3>
+                <div class="price">€97</div>
+                <p class="price-details">Einmalzahlung – Lebenslanger Zugriff</p>
+                
+                <ul class="includes-list">
+                    <li>Über 20 Videolektionen (ca. 4 Stunden Inhalt)</li>
+                    <li>Herunterladbare Arbeitsblätter & Journaling-Prompts</li>
+                    <li>Geführte Audio-Meditationen für schwierige Momente</li>
+                    <li>Schritt-für-Schritt-Anleitung zum heilsamen Briefeschreiben</li>
+                    <li>Meine persönliche Geschichte als Video-Bonus</li>
+                    <li>Umfangreiche Ressourcenliste mit Anlaufstellen</li>
+                    <li>Private Facebook-Gruppe für Austausch (optional)</li>
+                    <li>Lebenslanger Zugriff – bearbeite in deinem Tempo</li>
+                    <li>30 Tage Geld-zurück-Garantie</li>
+                </ul>
+
+                <a href="#" class="cta-button">Jetzt kaufen</a>
+                
+                <div class="safe-space" style="margin-top: 2rem; text-align: left;">
+                    <h3>💝 Ratenzahlung möglich</h3>
+                    <p>Finanzielle Sorgen sollten dich nicht von Heilung abhalten. Schreib mir für eine individuelle Ratenzahlungs-Vereinbarung.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="testimonials">
+        <h2 class="section-title">Stimmen von Teilnehmerinnen</h2>
+        
+        <div class="testimonial-card">
+            <p class="testimonial-text">"Zum ersten Mal hatte ich das Gefühl, dass jemand versteht, was in mir vorgeht. Dieser Kurs hat mir gezeigt, dass ich nicht verrückt bin – sondern dass meine Reaktionen völlig normal sind."</p>
+            <p class="testimonial-author">— Sarah, 32</p>
+        </div>
+
+        <div class="testimonial-card">
+            <p class="testimonial-text">"Das Kapitel über Täterstrategien war für mich der Durchbruch. Endlich verstehe ich, warum ich mich jahrelang schuldig gefühlt habe – obwohl ICH das Opfer war."</p>
+            <p class="testimonial-author">— Lisa, 28</p>
+        </div>
+
+        <div class="testimonial-card">
+            <p class="testimonial-text">"Die Übung mit dem Brief hat mir so geholfen. Ich musste ihn nicht abschicken, aber allein das Schreiben war unglaublich befreiend."</p>
+            <p class="testimonial-author">— Anna, 41</p>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2 class="section-title">Häufig gestellte Fragen</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Ist dieser Kurs ein Ersatz für Therapie?</div>
+            <div class="faq-answer">Nein. Dieser Kurs soll eine Ergänzung sein, aber keine professionelle Therapie ersetzen. Wenn du therapeutische Unterstützung brauchst, empfehle ich dir, zusätzlich professionelle Hilfe zu suchen.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Wie lange dauert der Kurs?</div>
+            <div class="faq-answer">Du hast lebenslangen Zugriff und kannst in deinem eigenen Tempo lernen. Die gesamten Videoinhalte umfassen ca. 4 Stunden, aber mit den Übungen und Reflexionsphasen solltest du 2-4 Wochen einplanen – oder länger, wenn du mehr Zeit brauchst.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Ist der Kurs anonym?</div>
+            <div class="faq-answer">Ja. Du kannst dich mit einem Pseudonym anmelden und niemand muss wissen, dass du diesen Kurs machst. Die optionale Facebook-Gruppe ist ebenfalls privat und geschützt.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Was, wenn der Kurs triggert?</div>
+            <div class="faq-answer">Ich gebe vor jedem Modul klare Trigger-Warnungen. Du kannst jederzeit pausieren oder Module überspringen. Es ist wichtig, auf dich zu achten und nur das zu machen, was sich für dich richtig anfühlt.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Gibt es eine Geld-zurück-Garantie?</div>
+            <div class="faq-answer">Ja. Wenn du innerhalb der ersten 30 Tage merkst, dass der Kurs nichts für dich ist, bekommst du dein Geld ohne Fragen zurück.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Ist der Kurs nur für Frauen?</div>
+            <div class="faq-answer">Nein. Dieser Kurs richtet sich an alle Betroffenen von sexueller Gewalt, unabhängig vom Geschlecht.</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="story-section" style="text-align: center;">
+            <h2>Bist du bereit?</h2>
+            <p>Heilung ist kein Sprint, sondern eine Reise. Und du musst sie nicht allein gehen.</p>
+            <p>Dieser Kurs wird dir nicht alle Probleme lösen – aber er wird dir zeigen, dass du normal bist, dass du verstanden wirst, und dass es Wege gibt, mit dem Trauma umzugehen.</p>
+            <p style="margin-top: 2rem;"><strong>Du verdienst Heilung. Du verdienst Frieden. Und du verdienst es, deine Geschichte in einem sicheren Raum zu verarbeiten.</strong></p>
+            <a href="#pricing" class="cta-button" style="margin-top: 2rem;">Ja, ich möchte starten</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Du bist nicht allein – Workshop für Betroffene</strong></p>
+            <p style="margin-top: 1rem;">Ein sicherer Raum für Heilung, Verständnis und Selbstmitgefühl.</p>
+            
+            <div class="safe-space" style="margin-top: 2rem; text-align: left;">
+                <h3>🆘 Krisentelefone</h3>
+                <p>Hilfetelefon sexueller Missbrauch: 0800 22 55 530 (kostenlos & anonym)<br>
+                Telefonseelsorge: 0800 111 0 111 oder 0800 111 0 222 (24/7)</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Kontakt</a>
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2024 Du bist nicht allein. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.topic-card, .feature-item, .testimonial-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Prevent context menu on scroll top button
+        scrollTopBtn.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
