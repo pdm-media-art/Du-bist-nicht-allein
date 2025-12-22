@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mitgliederbereich - Du bist nicht allein Workshop">
+    <title>Mitgliederbereich - Du bist nicht allein</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-rose: #D4A5A5;
+            --copper-rose: #C19A9A;
+            --light-rose: #F5E8E8;
+            --dark-rose: #A67C7C;
+            --cream: #FFF8F3;
+            --taupe: #8B7E74;
+            --dark-gray: #3A3A3A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--copper-rose) 0%, var(--primary-rose) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--white);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background: var(--white);
+            color: var(--copper-rose);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, var(--light-rose) 0%, var(--white) 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .welcome-section h1 {
+            color: var(--dark-rose);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .welcome-section p {
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .progress-overview {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .progress-overview h2 {
+            color: var(--dark-rose);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .progress-bar-container {
+            background: var(--light-rose);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--copper-rose), var(--dark-rose));
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .modules-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--dark-rose);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .audio-module {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--copper-rose);
+        }
+
+        .audio-module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .audio-module.completed {
+            border-left-color: #8BC19A;
+            background: linear-gradient(135deg, var(--white) 0%, #f0f9f2 100%);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .module-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-icon {
+            font-size: 2rem;
+        }
+
+        .module-title h3 {
+            color: var(--dark-rose);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .module-duration {
+            color: var(--taupe);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .audio-player::-webkit-media-controls-panel {
+            background: var(--light-rose);
+        }
+
+        .module-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--copper-rose), var(--dark-rose));
+            color: var(--white);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.4);
+        }
+
+        .complete-btn {
+            background: var(--light-rose);
+            color: var(--dark-rose);
+            border: 2px solid var(--copper-rose);
+        }
+
+        .complete-btn:hover {
+            background: var(--copper-rose);
+            color: var(--white);
+        }
+
+        .complete-btn.completed {
+            background: #8BC19A;
+            color: var(--white);
+            border-color: #8BC19A;
+            cursor: default;
+        }
+
+        .resources-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: var(--light-rose);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h4 {
+            color: var(--dark-rose);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .resource-card p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .safe-space {
+            background: var(--light-rose);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 6px solid var(--copper-rose);
+            margin-top: 3rem;
+        }
+
+        .safe-space h3 {
+            color: var(--dark-rose);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .safe-space p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark-rose) 0%, var(--copper-rose) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 7rem 1rem 2rem;
+            }
+
+            .welcome-section {
+                padding: 2rem;
+            }
+
+            .welcome-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .module-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .audio-module {
+                padding: 1.5rem;
+            }
+
+            .module-actions {
+                width: 100%;
+            }
+
+            .action-btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .audio-module {
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .audio-module:nth-child(1) { animation-delay: 0.1s; }
+        .audio-module:nth-child(2) { animation-delay: 0.2s; }
+        .audio-module:nth-child(3) { animation-delay: 0.3s; }
+        .audio-module:nth-child(4) { animation-delay: 0.4s; }
+        .audio-module:nth-child(5) { animation-delay: 0.5s; }
+        .audio-module:nth-child(6) { animation-delay: 0.6s; }
+        .audio-module:nth-child(7) { animation-delay: 0.7s; }
+        .audio-module:nth-child(8) { animation-delay: 0.8s; }
+        .audio-module:nth-child(9) { animation-delay: 0.9s; }
+        .audio-module:nth-child(10) { animation-delay: 1s; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Du bist nicht allein</div>
+            <a href="login.html" class="logout-btn" onclick="logout()">Abmelden</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1>🌸 Willkommen in deinem geschützten Raum</h1>
+            <p>Du hast den ersten Schritt gemacht. Nimm dir Zeit für dich und gehe in deinem eigenen Tempo durch die Module.</p>
+        </div>
+
+        <div class="progress-overview">
+            <h2>Dein Fortschritt</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar">0%</div>
+            </div>
+            <p style="margin-top: 1rem; color: var(--taupe);">
+                <span id="completedCount">0</span> von 10 Modulen abgeschlossen
+            </p>
+        </div>
+
+        <div class="modules-section">
+            <h2 class="section-title">Audio-Kurs Module</h2>
+
+            <!-- Einleitung -->
+            <div class="audio-module" data-module="0">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🎙️</span>
+                        <div>
+                            <h3>Einleitung</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Deine Reise beginnt hier</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~10 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/00-einleitung.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/00-einleitung.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(0)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 1 -->
+            <div class="audio-module" data-module="1">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🧠</span>
+                        <div>
+                            <h3>Modul 1: Auswirkungen auf Körper & Psyche</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Verstehe deine Reaktionen</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~15 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/01-modul-1.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/01-modul-1.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(1)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 2 -->
+            <div class="audio-module" data-module="2">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🎭</span>
+                        <div>
+                            <h3>Modul 2: Täterstrategien erkennen</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Manipulation verstehen</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~18 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/02-modul-2.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/02-modul-2.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(2)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 3 -->
+            <div class="audio-module" data-module="3">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">💭</span>
+                        <div>
+                            <h3>Modul 3: Scham & Schuldgefühle</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Es ist nicht deine Schuld</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~20 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/03-modul-3.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/03-modul-3.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(3)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 4 -->
+            <div class="audio-module" data-module="4">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">❤️</span>
+                        <div>
+                            <h3>Modul 4: Ambivalente Gefühle</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Widersprüchliche Emotionen sind normal</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~16 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/04-modul-4.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/04-modul-4.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(4)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 5 -->
+            <div class="audio-module" data-module="5">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🛡️</span>
+                        <div>
+                            <h3>Modul 5: Schutzmechanismen verstehen</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Deine Überlebensstrategien</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~17 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/05-modul-5.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/05-modul-5.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(5)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 6 -->
+            <div class="audio-module" data-module="6">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">⚖️</span>
+                        <div>
+                            <h3>Modul 6: Anzeigen & Justiz</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Die Realität des Rechtssystems</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~19 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/06-modul-6.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/06-modul-6.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(6)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 7 -->
+            <div class="audio-module" data-module="7">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🌊</span>
+                        <div>
+                            <h3>Modul 7: Emotionale Achterbahn</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Der nichtlineare Heilungsprozess</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~14 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/07-modul-7.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/07-modul-7.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(7)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul 8 -->
+            <div class="audio-module" data-module="8">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">✍️</span>
+                        <div>
+                            <h3>Modul 8: Heilsame Briefe schreiben</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Eine kraftvolle Technik</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~22 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/08-modul-8.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/08-modul-8.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(8)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Outro -->
+            <div class="audio-module" data-module="9">
+                <div class="module-header">
+                    <div class="module-title">
+                        <span class="module-icon">🌱</span>
+                        <div>
+                            <h3>Outro: Deine Reise geht weiter</h3>
+                            <p style="color: var(--taupe); font-size: 0.95rem;">Du bist nicht allein</p>
+                        </div>
+                    </div>
+                    <span class="module-duration">⏱️ ~8 Min.</span>
+                </div>
+                <audio class="audio-player" controls preload="metadata">
+                    <source src="audio/09-outro.mp3" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>
+                <div class="module-actions">
+                    <a href="audio/09-outro.mp3" download class="action-btn download-btn">
+                        💾 Herunterladen
+                    </a>
+                    <button class="action-btn complete-btn" onclick="toggleComplete(9)">
+                        ✓ Als abgeschlossen markieren
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2 class="section-title">Zusätzliche Ressourcen</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <h4>Arbeitsblätter</h4>
+                    <p>Praktische Übungen zum Download</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🎧</div>
+                    <h4>Meditationen</h4>
+                    <p>Geführte Entspannungsübungen</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h4>Anlaufstellen</h4>
+                    <p>Hilfreiche Kontakte & Infos</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">💬</div>
+                    <h4>Community</h4>
+                    <p>Private Facebook-Gruppe</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="safe-space">
+            <h3>💝 Nimm dir Zeit</h3>
+            <p>Es gibt keinen Zeitdruck. Du kannst jederzeit pausieren, zurückspulen oder ein Modul wiederholen. Dies ist dein sicherer Raum. Gehe in deinem eigenen Tempo und sei sanft zu dir selbst.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Du bist nicht allein. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // Load saved progress from localStorage
+        let completedModules = JSON.parse(localStorage.getItem('completedModules')) || [];
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            updateProgress();
+            loadCompletedModules();
+        });
+
+        // Toggle module completion
+        function toggleComplete(moduleId) {
+            const btn = event.target;
+            const moduleCard = document.querySelector(`[data-module="${moduleId}"]`);
+            
+            if (completedModules.includes(moduleId)) {
+                // Uncomplete
+                completedModules = completedModules.filter(id => id !== moduleId);
+                btn.classList.remove('completed');
+                btn.textContent = '✓ Als abgeschlossen markieren';
+                moduleCard.classList.remove('completed');
+            } else {
+                // Complete
+                completedModules.push(moduleId);
+                btn.classList.add('completed');
+                btn.textContent = '✓ Abgeschlossen';
+                moduleCard.classList.add('completed');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('completedModules', JSON.stringify(completedModules));
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const total = 10;
+            const completed = completedModules.length;
+            const percentage = (completed / total) * 100;
+            
+            const progressBar = document.getElementById('progressBar');
+            const completedCount = document.getElementById('completedCount');
+            
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = Math.round(percentage) + '%';
+            completedCount.textContent = completed;
+        }
+
+        // Load completed modules on page load
+        function loadCompletedModules() {
+            completedModules.forEach(moduleId => {
+                const moduleCard = document.querySelector(`[data-module="${moduleId}"]`);
+                const btn = moduleCard.querySelector('.complete-btn');
+                
+                btn.classList.add('completed');
+                btn.textContent = '✓ Abgeschlossen';
+                moduleCard.classList.add('completed');
+            });
+        }
+
+        // Logout function
+        function logout() {
+            if (
