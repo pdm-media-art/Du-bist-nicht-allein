@@ -2,11 +2,15 @@ User-agent: *
 Allow: /
 Allow: /index.html
 Allow: /blog.html
+Allow: /impressum.html
+Allow: /datenschutz.html
 Allow: /sitemap.xml
+Allow: /fonts/
 
-# Mitgliederbereich und Login nicht indexieren
+# Nicht indexieren
 Disallow: /login.html
 Disallow: /member-area.html
+Disallow: /node_modules/
 
 # Sitemap
-Sitemap: https://www.du-bist-nicht-allein.de/sitemap.xml
+Sitemap: https://www.stille-worte.de/sitemap.xml
