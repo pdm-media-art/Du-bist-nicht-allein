@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung – Stille Worte</title>
+    <meta name="description" content="Datenschutzerklärung von Stille Worte gemäß DSGVO.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.stille-worte.de/datenschutz.html">
+
+    <style>
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('fonts/playfair-display-400.woff2') format('woff2');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('fonts/playfair-display-700.woff2') format('woff2');
+            font-weight: 700; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter-400.woff2') format('woff2');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter-600.woff2') format('woff2');
+            font-weight: 600; font-style: normal; font-display: swap;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-rose: #D4A5A5;
+            --copper-rose: #C19A9A;
+            --light-rose: #F5E8E8;
+            --dark-rose: #A67C7C;
+            --cream: #FFF8F3;
+            --taupe: #8B7E74;
+            --dark-gray: #3A3A3A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+
+        header {
+            background: linear-gradient(135deg, #A67C7C 0%, #C19A9A 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-back {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-back:hover { color: white; }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--light-rose) 0%, var(--cream) 100%);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            color: var(--dark-rose);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p { color: var(--taupe); font-size: 0.9rem; }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .legal-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .legal-section h2 {
+            color: var(--dark-rose);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid var(--light-rose);
+        }
+
+        .legal-section h3 {
+            color: var(--copper-rose);
+            font-size: 1.05rem;
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        .legal-section p {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-section ul {
+            margin: 0.8rem 0 0.8rem 1.5rem;
+        }
+
+        .legal-section li {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0.4rem;
+        }
+
+        .legal-section a {
+            color: var(--dark-rose);
+            text-decoration: none;
+            border-bottom: 1px solid var(--copper-rose);
+            transition: opacity 0.2s ease;
+        }
+
+        .legal-section a:hover { opacity: 0.75; }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark-rose) 0%, var(--copper-rose) 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy { color: rgba(255,255,255,0.55); font-size: 0.82rem; }
+
+        @media (max-width: 768px) {
+            .page-header { padding: 3rem 1.5rem 2rem; }
+            .content { padding: 2.5rem 1.5rem; }
+            .legal-section { padding: 2rem; }
+            .page-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Stille Worte</a>
+            <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Datenschutzerklärung</h1>
+        <p>Gemäß DSGVO – zuletzt aktualisiert: März 2026</p>
+    </div>
+
+    <div class="content">
+
+        <div class="legal-section">
+            <h2>1. Verantwortliche Person</h2>
+            <p>Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:</p>
+            <p>
+                <strong>Tina Orth</strong><br>
+                Kirchstr. 8b<br>
+                55270 Essenheim<br>
+                E-Mail: <a href="mailto:stilleworte26@gmail.com">stilleworte26@gmail.com</a>
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>2. Allgemeines zur Datenverarbeitung</h2>
+            <p>Ich nehme den Schutz deiner persönlichen Daten sehr ernst. Diese Website:</p>
+            <ul>
+                <li>verwendet <strong>keine</strong> Cookies (außer technisch notwendigen Sitzungs-Cookies des Browsers)</li>
+                <li>setzt <strong>kein</strong> Tracking oder Web-Analytics ein (kein Google Analytics, kein Facebook Pixel)</li>
+                <li>hat <strong>kein</strong> Newsletter-System</li>
+                <li>bindet <strong>keine</strong> externen Schriftarten oder Skripte von Drittanbietern ein</li>
+            </ul>
+            <p>Alle Schriftarten (Playfair Display, Inter) sind lokal auf dem Server gespeichert und werden nicht von externen Servern geladen.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>3. Welche Daten werden erhoben?</h2>
+
+            <h3>Server-Logfiles (IONOS)</h3>
+            <p>Beim Besuch dieser Website werden durch den Hosting-Anbieter <strong>IONOS SE</strong> automatisch technische Daten in sogenannten Server-Logfiles erfasst. Dies betrifft:</p>
+            <ul>
+                <li>IP-Adresse (in gekürzter/anonymisierter Form)</li>
+                <li>Datum und Uhrzeit des Abrufs</li>
+                <li>Aufgerufene URL</li>
+                <li>Referrer-URL (die zuvor besuchte Seite)</li>
+                <li>Browsertyp und Betriebssystem</li>
+                <li>Übertragene Datenmenge</li>
+            </ul>
+            <p>Diese Daten werden ausschließlich zur Sicherstellung eines störungsfreien Betriebs der Website erhoben und nach kurzer Zeit automatisch gelöscht. Eine Weitergabe an Dritte erfolgt nicht.</p>
+            <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung der Website).</p>
+
+            <p>Informationen zum Datenschutz bei IONOS findest du unter:
+                <a href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">
+                    www.ionos.de/terms-gtc/datenschutzerklaerung/
+                </a>
+            </p>
+
+            <h3>Kontaktaufnahme per E-Mail</h3>
+            <p>Wenn du mich per E-Mail kontaktierst, werden deine übermittelten Daten (E-Mail-Adresse, Name, Nachrichteninhalt) ausschließlich zur Bearbeitung deiner Anfrage gespeichert und verwendet. Eine Weitergabe an Dritte findet nicht statt. Du kannst jederzeit der Speicherung widersprechen.</p>
+            <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b oder lit. f DSGVO.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>4. Weitergabe an Dritte</h2>
+            <p>Deine personenbezogenen Daten werden nicht an Dritte weitergegeben, verkauft oder vermietet, außer wenn dies zur Erfüllung eines Vertrages erforderlich oder gesetzlich vorgeschrieben ist.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>5. Deine Rechte (Betroffenenrechte)</h2>
+            <p>Du hast das Recht auf:</p>
+            <ul>
+                <li><strong>Auskunft</strong> über die über dich gespeicherten Daten (Art. 15 DSGVO)</li>
+                <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+                <li><strong>Löschung</strong> deiner Daten (Art. 17 DSGVO)</li>
+                <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+                <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                <li>Beschwerde bei der zuständigen <strong>Aufsichtsbehörde</strong></li>
+            </ul>
+            <p>Für Anfragen zu deinen Rechten wende dich bitte per E-Mail an:
+                <a href="mailto:stilleworte26@gmail.com">stilleworte26@gmail.com</a>
+            </p>
+
+            <h3>Zuständige Aufsichtsbehörde</h3>
+            <p>
+                Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz<br>
+                Hintere Bleiche 34<br>
+                55116 Mainz<br>
+                <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener noreferrer">www.datenschutz.rlp.de</a>
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>6. Externe Links</h2>
+            <p>Diese Website enthält Links zu externen Seiten (z. B. Instagram). Für den Datenschutz auf diesen Seiten sind die jeweiligen Betreiber verantwortlich. Mit dem Klicken auf externe Links verlässt du diese Website.</p>
+            <p>Beim Klick auf den Link zu Instagram (<a href="https://www.instagram.com/stil_leworte/" target="_blank" rel="noopener noreferrer">@stil_leworte</a>) gelten die Datenschutzbestimmungen von Meta Platforms Ireland Limited.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>7. Aktualität dieser Datenschutzerklärung</h2>
+            <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand März 2026. Durch die Weiterentwicklung dieser Website oder aufgrund geänderter gesetzlicher oder behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung anzupassen.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <nav class="footer-links" aria-label="Footer-Navigation">
+            <a href="index.html">Startseite</a>
+            <a href="blog.html">Blog</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="mailto:stilleworte26@gmail.com">Kontakt</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Stille Worte · Tina Orth. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>
