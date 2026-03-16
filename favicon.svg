@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C19A9A"/>
+      <stop offset="100%" stop-color="#A67C7C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund: abgerundetes Quadrat -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+
+  <!-- 5-Blütenblatt Blume in Weiß -->
+  <g transform="translate(16,16)">
+    <ellipse cx="0" cy="-5.2" rx="2.6" ry="4.8" fill="rgba(255,255,255,0.88)"/>
+    <ellipse cx="0" cy="-5.2" rx="2.6" ry="4.8" fill="rgba(255,255,255,0.88)" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-5.2" rx="2.6" ry="4.8" fill="rgba(255,255,255,0.88)" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-5.2" rx="2.6" ry="4.8" fill="rgba(255,255,255,0.88)" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-5.2" rx="2.6" ry="4.8" fill="rgba(255,255,255,0.88)" transform="rotate(288)"/>
+    <!-- Blütenmitte -->
+    <circle cx="0" cy="0" r="2.8" fill="#FFF8F3"/>
+    <circle cx="0" cy="0" r="1.4" fill="#D4A5A5"/>
+  </g>
+</svg>

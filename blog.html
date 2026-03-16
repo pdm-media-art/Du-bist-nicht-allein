@@ -11,6 +11,7 @@
     <meta name="author" content="Tina Orth">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.stille-worte.de/blog.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- SEO: Open Graph -->
     <meta property="og:type" content="blog">
@@ -526,12 +527,18 @@
         .sidebar-about-avatar {
             width: 80px; height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--light-rose), var(--primary-rose));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
             margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid var(--light-rose);
+            box-shadow: 0 4px 12px rgba(166,124,124,0.3);
+        }
+
+        .sidebar-about-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
 
         .sidebar-about h3 {
@@ -959,7 +966,9 @@
 
             <!-- Über mich Widget -->
             <div class="sidebar-about">
-                <div class="sidebar-about-avatar" aria-hidden="true">🌸</div>
+                <div class="sidebar-about-avatar">
+                    <img src="tina.jpg" alt="Tina Orth">
+                </div>
                 <h3>Hallo, ich bin Tina.</h3>
                 <p>Überlebende, Bloggerin und Mensch in Heilung. Ich schreibe, damit du weißt: Du bist nicht allein.</p>
                 <a href="index.html#ueber-mich">Mehr über mich →</a>
