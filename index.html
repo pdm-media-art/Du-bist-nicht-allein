@@ -3,8 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Du bist nicht allein - Ein Online-Workshop für Betroffene von sexueller Gewalt. Verstehe deine Reaktionen, überwinde Scham und beginne zu heilen.">
-    <title>Du bist nicht allein - Workshop für Betroffene</title>
+
+    <!-- SEO: Primäre Meta-Tags -->
+    <title>Du bist nicht allein – Online-Workshop für Betroffene sexueller Gewalt</title>
+    <meta name="description" content="Du bist nicht allein – der einfühlsame Online-Workshop für Überlebende sexueller Gewalt. Verstehe Trauma-Reaktionen, überwinde Scham & starte deine Heilung. Jetzt entdecken.">
+    <meta name="keywords" content="sexuelle Gewalt Hilfe, Trauma Heilung, Online Workshop Betroffene, Überlebende sexueller Gewalt, Scham überwinden, Trauma verarbeiten, Selbsthilfe sexueller Missbrauch, Heilung nach Trauma">
+    <meta name="author" content="Du bist nicht allein">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.du-bist-nicht-allein.de/">
+
+    <!-- SEO: Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.du-bist-nicht-allein.de/">
+    <meta property="og:title" content="Du bist nicht allein – Online-Workshop für Betroffene sexueller Gewalt">
+    <meta property="og:description" content="Ein sicherer, selbstgesteuerter Online-Workshop für Überlebende sexueller Gewalt. Verstehe deine Reaktionen, überwinde Scham und beginne zu heilen.">
+    <meta property="og:image" content="https://www.du-bist-nicht-allein.de/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Du bist nicht allein">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Du bist nicht allein – Online-Workshop für Betroffene">
+    <meta name="twitter:description" content="Ein sicherer Online-Workshop für Überlebende sexueller Gewalt. Verstehe, heile, wachse – in deinem eigenen Tempo.">
+    <meta name="twitter:image" content="https://www.du-bist-nicht-allein.de/og-image.jpg">
+
+    <!-- SEO: JSON-LD Strukturierte Daten -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Du bist nicht allein – Workshop für Betroffene",
+      "description": "Ein einfühlsamer Online-Workshop für Überlebende sexueller Gewalt. Verstehe Trauma-Reaktionen, überwinde Scham und beginne deine Heilungsreise in einem sicheren, selbstgesteuerten Raum.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Du bist nicht allein",
+        "url": "https://www.du-bist-nicht-allein.de",
+        "sameAs": ["https://www.instagram.com/dubistnichtallein"]
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "97",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT4H"
+      },
+      "inLanguage": "de",
+      "numberOfCredits": "9",
+      "educationalLevel": "Beginner"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -24,11 +81,15 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--cream);
             overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
         }
 
         /* Header & Navigation - OPTIMIERT */
@@ -64,6 +125,9 @@
             font-weight: 600;
             letter-spacing: 0.5px;
             transition: transform 0.3s ease;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Playfair Display', Georgia, serif;
         }
 
         .logo:hover {
@@ -121,6 +185,32 @@
 
         .login-link::after {
             display: none;
+        }
+
+        /* Instagram Icon in Nav */
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--white) !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .instagram-link svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-link:hover svg {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .instagram-link::after {
+            display: none !important;
         }
 
         /* Mobile Menu Toggle */
@@ -840,6 +930,233 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
+        /* Blog Preview Section */
+        .blog-section {
+            background: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.25);
+        }
+
+        .blog-card-header {
+            background: linear-gradient(135deg, var(--copper-rose) 0%, var(--dark-rose) 100%);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .blog-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-card-title {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .blog-card-body {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--taupe);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .blog-excerpt {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark-rose);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-read-more:hover {
+            gap: 0.8rem;
+        }
+
+        .blog-cta {
+            text-align: center;
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .instagram-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+        }
+
+        .instagram-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(131, 58, 180, 0.45);
+        }
+
+        .instagram-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .blog-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--dark-rose);
+            border: 2px solid var(--copper-rose);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-more-btn:hover {
+            background: var(--dark-rose);
+            color: var(--white);
+            border-color: var(--dark-rose);
+            transform: translateY(-3px);
+        }
+
+        /* Footer Social Links */
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-social a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-4px);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--light-rose);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--taupe);
+            font-weight: 500;
+        }
+
+        .trust-item span:first-child {
+            font-size: 1rem;
+        }
+
         /* Responsive - OPTIMIERT */
         @media (max-width: 768px) {
             .hero {
@@ -923,6 +1240,25 @@
                 gap: 1.5rem;
             }
 
+            .trust-bar {
+                gap: 1rem;
+                font-size: 0.75rem;
+            }
+
+            .trust-item {
+                font-size: 0.75rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
             .scroll-top {
                 bottom: 20px;
                 right: 20px;
@@ -966,17 +1302,31 @@
     </script>
     <header id="header">
         <nav>
-            <div class="logo">Du bist nicht allein</div>
-            <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Menü">☰</button>
+            <a href="/" class="logo" aria-label="Du bist nicht allein – Startseite">Du bist nicht allein</a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">Über den Kurs</a></li>
                 <li><a href="#topics">Inhalte</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="#pricing">Preis</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li>
+                    <a href="https://www.instagram.com/dubistnichtallein" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </li>
                 <li><a href="login.html" class="login-link">🔒 Mitglieder Login</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar" role="complementary" aria-label="Vertrauensindikatoren">
+        <span class="trust-item"><span>🔒</span> SSL-geschützt & anonym</span>
+        <span class="trust-item"><span>💝</span> 30 Tage Geld-zurück-Garantie</span>
+        <span class="trust-item"><span>⭐</span> Über 200 Teilnehmerinnen</span>
+        <span class="trust-item"><span>🌸</span> Selbstgesteuert & sicher</span>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
@@ -1156,6 +1506,69 @@
         </div>
     </section>
 
+    <!-- Blog Preview Section -->
+    <section class="blog-section" id="blog" aria-labelledby="blog-title">
+        <h2 class="section-title" id="blog-title">Aus dem Blog</h2>
+        <p style="text-align:center; color:var(--taupe); font-size:1.1rem; margin-top:-2rem; margin-bottom:3rem;">Wissen, das stärkt – kostenlose Artikel über Trauma, Heilung & Selbstfürsorge</p>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-card-header">
+                    <span class="blog-category">Trauma & Körper</span>
+                    <h3 class="blog-card-title">Warum dein Körper sich erinnert – und wie du ihm wieder vertrauen lernst</h3>
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-meta">
+                        <span>📅 März 2025</span>
+                        <span>⏱ 6 Min. Lesezeit</span>
+                    </div>
+                    <p class="blog-excerpt">Traumatische Erlebnisse hinterlassen nicht nur mentale, sondern auch körperliche Spuren. Erfahre, warum Freeze-Reaktionen, Herzrasen oder Taubheitsgefühle völlig normale Schutzreflexe sind – und wie du Schritt für Schritt wieder in Verbindung mit deinem Körper kommst.</p>
+                    <a href="blog.html#trauma-koerper" class="blog-read-more" aria-label="Artikel über Trauma und Körper lesen">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-header">
+                    <span class="blog-category">Scham & Schuld</span>
+                    <h3 class="blog-card-title">„Ich hätte Nein sagen müssen" – Warum du nicht schuld bist</h3>
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-meta">
+                        <span>📅 Februar 2025</span>
+                        <span>⏱ 7 Min. Lesezeit</span>
+                    </div>
+                    <p class="blog-excerpt">Schuldgefühle sind eine der häufigsten Reaktionen nach sexueller Gewalt – und gleichzeitig eine der schmerzhaftesten Lügen, die Täter gezielt einpflanzen. Dieser Artikel erklärt, wie Täterstrategien funktionieren und warum die Verantwortung niemals bei dir lag.</p>
+                    <a href="blog.html#scham-schuld" class="blog-read-more" aria-label="Artikel über Scham und Schuld lesen">Weiterlesen →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-header">
+                    <span class="blog-category">Heilung & Selbstfürsorge</span>
+                    <h3 class="blog-card-title">5 Selbstfürsorge-Rituale, die bei Trauma wirklich helfen</h3>
+                </div>
+                <div class="blog-card-body">
+                    <div class="blog-meta">
+                        <span>📅 Januar 2025</span>
+                        <span>⏱ 5 Min. Lesezeit</span>
+                    </div>
+                    <p class="blog-excerpt">Selbstfürsorge bedeutet nicht Blasenbäder und Gesichtsmasken. Für Trauma-Überlebende braucht es Rituale, die wirklich Sicherheit vermitteln. Hier sind fünf evidenzbasierte Ansätze, die du noch heute in deinen Alltag integrieren kannst.</p>
+                    <a href="blog.html#selbstfuersorge" class="blog-read-more" aria-label="Artikel über Selbstfürsorge bei Trauma lesen">Weiterlesen →</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="blog-cta">
+            <a href="blog.html" class="blog-more-btn" aria-label="Alle Blogartikel lesen">
+                Alle Artikel lesen →
+            </a>
+            <a href="https://www.instagram.com/dubistnichtallein" target="_blank" rel="noopener noreferrer" class="instagram-cta" aria-label="Auf Instagram folgen für tägliche Impulse">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Folge uns auf Instagram
+            </a>
+        </div>
+    </section>
+
     <section id="faq">
         <h2 class="section-title">Häufig gestellte Fragen</h2>
         
@@ -1203,21 +1616,30 @@
     <footer>
         <div class="footer-content">
             <p><strong>Du bist nicht allein – Workshop für Betroffene</strong></p>
-            <p style="margin-top: 1rem;">Ein sicherer Raum für Heilung, Verständnis und Selbstmitgefühl.</p>
-            
-            <div class="safe-space" style="margin-top: 2rem; text-align: left;">
-                <h3>🆘 Krisentelefone</h3>
-                <p>Hilfetelefon sexueller Missbrauch: 0800 22 55 530 (kostenlos & anonym)<br>
-                Telefonseelsorge: 0800 111 0 111 oder 0800 111 0 222 (24/7)</p>
+            <p style="margin-top: 0.5rem; opacity: 0.9;">Ein sicherer Raum für Heilung, Verständnis und Selbstmitgefühl.</p>
+
+            <!-- Social Media Links -->
+            <div class="footer-social" role="navigation" aria-label="Social Media">
+                <a href="https://www.instagram.com/dubistnichtallein" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @dubistnichtallein">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+            <p style="opacity: 0.75; font-size: 0.9rem; margin-bottom: 1.5rem;">@dubistnichtallein – Tägliche Impulse für deine Heilungsreise</p>
+
+            <div class="safe-space" style="margin-top: 1.5rem; text-align: left; background: rgba(255,255,255,0.12); border-left-color: rgba(255,255,255,0.4);">
+                <h3 style="color: var(--white);">🆘 Krisentelefone</h3>
+                <p style="color: rgba(255,255,255,0.9);">Hilfetelefon sexueller Missbrauch: <strong>0800 22 55 530</strong> (kostenlos &amp; anonym)<br>
+                Telefonseelsorge: <strong>0800 111 0 111</strong> oder <strong>0800 111 0 222</strong> (24/7, kostenlos)</p>
             </div>
 
             <div class="footer-links">
+                <a href="blog.html">Blog</a>
                 <a href="#">Impressum</a>
                 <a href="#">Datenschutz</a>
                 <a href="#">Kontakt</a>
             </div>
-            
-            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2024 Du bist nicht allein. Alle Rechte vorbehalten.</p>
+
+            <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">&copy; 2025 Du bist nicht allein. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -1267,7 +1689,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.topic-card, .feature-item, .testimonial-card, .faq-item').forEach(el => {
+        document.querySelectorAll('.topic-card, .feature-item, .testimonial-card, .faq-item, .blog-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

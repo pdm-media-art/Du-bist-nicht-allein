@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /blog.html
+Allow: /sitemap.xml
+
+# Mitgliederbereich und Login nicht indexieren
+Disallow: /login.html
+Disallow: /member-area.html
+
+# Sitemap
+Sitemap: https://www.du-bist-nicht-allein.de/sitemap.xml
